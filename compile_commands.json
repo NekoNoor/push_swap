@@ -1,0 +1,18 @@
+[
+ {
+  "directory": "/Users/nschat/Projects/push_swap",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-c",
+   "src/main.c",
+   "-o",
+   "obj/main.o"
+  ],
+  "file": "src/main.c"
+ }
+]

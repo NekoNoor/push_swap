@@ -6,9 +6,11 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/04 15:18:00 by nschat        #+#    #+#                 */
-/*   Updated: 2021/08/04 15:20:19 by nschat        ########   odam.nl         */
+/*   Updated: 2021/08/04 17:05:10 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	main(int ac, char **av)
 {
