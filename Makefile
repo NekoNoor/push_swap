@@ -6,15 +6,21 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/04 15:05:19 by nschat        #+#    #+#                  #
-#    Updated: 2021/08/06 14:17:12 by nschat        ########   odam.nl          #
+#    Updated: 2021/08/06 14:44:18 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
+
 
 CC := gcc
 
 IDIR := include
 LDFLAGS ?=
 CFLAGS ?= -Wall -Wextra -Werror -I $(IDIR)
+
+ifeq (1,${DEBUG})
+	CFLAGS := $(CFLAGS) -g
+	LDFLAGS := $(LDFLAGS) -g
+endif
 
 ODIR := obj
 SRC := main.c
