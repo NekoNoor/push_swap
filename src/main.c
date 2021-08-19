@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/04 15:18:00 by nschat        #+#    #+#                 */
-/*   Updated: 2021/08/19 14:40:31 by nschat        ########   odam.nl         */
+/*   Updated: 2021/08/19 14:42:46 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	isdigit(int c)
 	return (0);
 }
 
-static int 	str_isnumeric(const char *str)
+static int	str_isnumeric(const char *str)
 {
 	if (str == NULL || *str == '\0')
 		return (-1);
