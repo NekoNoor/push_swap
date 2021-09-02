@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.h                                           :+:    :+:            */
+/*   ft_lstlast_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:22:43 by nschat        ########   odam.nl         */
+/*   Created: 2019/11/06 13:09:04 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/06 13:09:05 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+#include "libft.h"
 
-#endif
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}

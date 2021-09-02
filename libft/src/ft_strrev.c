@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.h                                           :+:    :+:            */
+/*   ft_strrev.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:22:43 by nschat        ########   odam.nl         */
+/*   Created: 2019/11/10 16:55:41 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/10 19:10:43 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+#include "libft.h"
 
-#endif
+char	*ft_strrev(char *str)
+{
+	char	temp;
+	int		len;
+	int		i;
+
+	len = ft_strlen(str);
+	i = 0;
+	while (i < len / 2)
+	{
+		temp = str[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
+		i++;
+	}
+	return (str);
+}

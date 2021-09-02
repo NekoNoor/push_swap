@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.h                                           :+:    :+:            */
+/*   ft_strmapi.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:22:43 by nschat        ########   odam.nl         */
+/*   Created: 2019/10/28 18:16:29 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/17 15:47:46 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+#include "libft.h"
+#include <stdlib.h>
 
-#endif
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char	*res;
+	int		i;
+
+	if (s == NULL || f == NULL)
+		return (NULL);
+	res = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		res[i] = (*f)(i, s[i]);
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
+}

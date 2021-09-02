@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.h                                           :+:    :+:            */
+/*   ft_islower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:22:43 by nschat        ########   odam.nl         */
+/*   Created: 2019/11/07 17:34:04 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/17 15:43:09 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
-
-#endif
+int	ft_islower(int c)
+{
+	return (c >= 'a' && c <= 'z');
+}

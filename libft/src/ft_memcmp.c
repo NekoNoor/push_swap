@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.h                                           :+:    :+:            */
+/*   ft_memcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:22:43 by nschat        ########   odam.nl         */
+/*   Created: 2019/10/28 17:48:19 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/18 17:41:01 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+#include <stddef.h>
 
-#endif
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned const char	*s1_ucc;
+	unsigned const char	*s2_ucc;
+
+	s1_ucc = (unsigned const char *)s1;
+	s2_ucc = (unsigned const char *)s2;
+	while (n)
+	{
+		if (*s1_ucc != *s2_ucc)
+			return (*s1_ucc - *s2_ucc);
+		s1_ucc++;
+		s2_ucc++;
+		n--;
+	}
+	return (0);
+}

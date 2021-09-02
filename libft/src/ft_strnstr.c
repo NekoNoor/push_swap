@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.h                                           :+:    :+:            */
+/*   ft_strnstr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:22:43 by nschat        ########   odam.nl         */
+/*   Created: 2019/11/03 17:06:11 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/24 15:59:31 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+#include "libft.h"
 
-#endif
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	size_t	needlelen;
+	size_t	i;
+
+	if (*needle == '\0')
+		return ((char *)haystack);
+	needlelen = ft_strlen(needle);
+	i = 0;
+	while (len - i >= needlelen)
+	{
+		if (*haystack == '\0')
+			break ;
+		if (ft_strncmp(haystack, needle, needlelen) == 0)
+			return ((char *)haystack);
+		haystack++;
+		i++;
+	}
+	return (NULL);
+}

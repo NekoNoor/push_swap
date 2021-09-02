@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.h                                           :+:    :+:            */
+/*   ft_strcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:22:43 by nschat        ########   odam.nl         */
+/*   Created: 2019/12/04 16:27:39 by nschat        #+#    #+#                 */
+/*   Updated: 2019/12/04 17:21:13 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+#include <stddef.h>
 
-#endif
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 == *s2)
+	{
+		if (*s1 == '\0')
+			break ;
+		s2++;
+		s1++;
+	}
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}

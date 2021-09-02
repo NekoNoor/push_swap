@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   header.h                                           :+:    :+:            */
+/*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:22:43 by nschat        ########   odam.nl         */
+/*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
+/*   Updated: 2019/11/10 18:35:34 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft.h"
+#include "libft.h"
 
-#endif
+char	*ft_strrchr(const char *s, int c)
+{
+	const char	*orig;
+	char		c_c;
+
+	orig = s;
+	c_c = (char)c;
+	s += ft_strlen(s);
+	while (s > orig && *s != c_c)
+		s--;
+	if (s == orig && *s != c_c)
+		return (NULL);
+	return ((char *)s);
+}
