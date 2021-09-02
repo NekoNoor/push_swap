@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/04 15:18:00 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/02 16:32:56 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/02 17:05:53 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,38 @@ static int	str_isnumeric(const char *str)
 		str++;
 	while (*str != '\0')
 	{
-		if (ft_isdigit(*str) == 0)
+		if (ft_isdigit(*str) != 1)
 			return (0);
 		str++;
 	}
 	return (1);
 }
 
-int	main(int ac, char **av)
+static int	validate_input(int ac, char **av)
 {
 	int	i;
 
-	if (ac == 1)
-		ft_putendl_fd("Error: not enough arguments", 2);
 	i = 1;
 	while (i < ac)
 	{
 		if (str_isnumeric(av[i]) != 1)
-		{
-			ft_putendl_fd("Error: input is non-numeric", 2);
-			return (1);
-		}
+			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	main(int ac, char **av)
+{
+	if (ac == 1)
+	{
+		ft_putendl_fd("Error: not enough arguments", 2);
+		return (1);
+	}
+	if (validate_input(ac, av) != 1)
+	{
+		ft_putendl_fd("Error: input is non-numeric", 2);
+		return (2);
 	}
 	return (0);
 }
