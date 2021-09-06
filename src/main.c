@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/04 15:18:00 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/06 15:44:35 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/06 16:53:01 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static long	*read_into_array(char **av, int len)
 	i = 0;
 	while (i < len)
 	{
-		array[i] = ft_atoi(av[i + 1]);
+		array[i] = ft_strtol(av[i + 1], 10);
 		i++;
 	}
 	return (array);
