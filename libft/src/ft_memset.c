@@ -6,13 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 17:38:26 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/18 19:26:43 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/06 15:06:12 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void			*ft_memset_char(void *b, int c, size_t len)
+static void	*ft_memset_char(void *b, int c, size_t len)
 {
 	unsigned char	*b_uc;
 	unsigned char	c_uc;
@@ -40,7 +40,7 @@ static unsigned int	ft_repeat_bytes(int c)
 	return (uint);
 }
 
-void				*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t			n;
 	unsigned int	uint;

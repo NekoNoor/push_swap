@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/12 06:55:17 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/06 15:35:54 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static unsigned char	ft_getvalue(char c, int base)
 	return (255);
 }
 
-long					ft_strtol(const char *str, int base)
+long	ft_strtol(const char *str, int base)
 {
 	int				sign;
 	unsigned long	nbr;
@@ -37,24 +37,34 @@ long					ft_strtol(const char *str, int base)
 		return (0);
 	while (ft_isspace(*str))
 		str++;
-	sign = (base == 10 && *str == '-') ? -1 : 1;
+	sign = 1;
+	if (base == 10 && *str == '-')
+		sign = -1;
 	if (base == 10 && (*str == '+' || *str == '-'))
 		str++;
 	nbr = 0;
-	max = (sign == -1) ? (unsigned long)LONG_MAX + 1 : LONG_MAX;
-	lim = (sign == -1) ? 8 : 7;
+	max = LONG_MAX;
+	if (sign == -1)
+		max = (unsigned long)LONG_MAX + 1;
+	lim = 7;
+	if (sign == -1)
+		lim = 8;
 	max /= base;
 	while (ft_getvalue(*str, base) != 255)
 	{
 		if (nbr > max || (nbr == max && ft_getvalue(*str, base) > lim))
-			return ((sign == -1) ? LONG_MIN : LONG_MAX);
+		{
+			if (sign == -1)
+				return (LONG_MIN);
+			return (LONG_MAX);
+		}	
 		nbr = nbr * base + ft_getvalue(*str, base);
 		str++;
 	}
 	return ((long)(nbr * sign));
 }
 
-int						ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	return ((int)ft_strtol(str, 10));
 }

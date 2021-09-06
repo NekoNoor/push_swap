@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:23 by nschat        #+#    #+#                 */
-/*   Updated: 2019/11/07 17:38:50 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/06 15:26:43 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int	ft_tolower(int c)
 {
-	return (ft_isupper(c) ? c ^ 32 : c);
+	if (ft_isupper(c) == 1)
+		return (c ^ 32);
+	return (c);
 }
