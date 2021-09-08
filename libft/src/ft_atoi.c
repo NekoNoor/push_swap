@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 17:48:21 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/06 15:35:54 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/08 13:50:57 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,28 @@ static unsigned char	ft_getvalue(char c, int base)
 	return (255);
 }
 
+static int	limit_check(int base, int sign, unsigned long nbr,
+		unsigned char value)
+{
+	unsigned long	max;
+	int				lim;
+
+	max = LONG_MAX;
+	if (sign == -1)
+		max = (unsigned long)LONG_MAX + 1;
+	lim = 7;
+	if (sign == -1)
+		lim = 8;
+	max /= base;
+	if (nbr > max || (nbr == max && value > lim))
+		return (1);
+	return (0);
+}
+
 long	ft_strtol(const char *str, int base)
 {
 	int				sign;
 	unsigned long	nbr;
-	unsigned long	max;
-	int				lim;
 
 	if (base < 2 || base > 36)
 		return (0);
@@ -43,16 +59,9 @@ long	ft_strtol(const char *str, int base)
 	if (base == 10 && (*str == '+' || *str == '-'))
 		str++;
 	nbr = 0;
-	max = LONG_MAX;
-	if (sign == -1)
-		max = (unsigned long)LONG_MAX + 1;
-	lim = 7;
-	if (sign == -1)
-		lim = 8;
-	max /= base;
 	while (ft_getvalue(*str, base) != 255)
 	{
-		if (nbr > max || (nbr == max && ft_getvalue(*str, base) > lim))
+		if (limit_check(base, sign, nbr, ft_getvalue(*str, base)) != 0)
 		{
 			if (sign == -1)
 				return (LONG_MIN);

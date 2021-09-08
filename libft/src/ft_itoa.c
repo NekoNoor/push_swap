@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/28 18:16:28 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/06 15:29:21 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/08 13:59:48 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,11 @@ static int	ft_numlen_base(int n, int base)
 	return (len);
 }
 
-char	*ft_itoa_base(int n, int base)
+static char	*fill_rev_string(char *str, int n, long nbr, int base)
 {
 	static const char	set[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char				*str;
-	long				nbr;
 	int					i;
 
-	if (base < 2 || base > 36)
-		return (NULL);
-	str = (char *)malloc((ft_numlen_base(n, base) + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	nbr = n;
-	if (n < 0)
-		nbr = -(long)n;
 	i = 0;
 	if (nbr == 0)
 		str[i] = '0';
@@ -56,6 +46,23 @@ char	*ft_itoa_base(int n, int base)
 		str[i] = '-';
 	i += ((n < 0 && base == 10) || n == 0);
 	str[i] = '\0';
+	return (str);
+}
+
+char	*ft_itoa_base(int n, int base)
+{
+	char				*str;
+	long				nbr;
+
+	if (base < 2 || base > 36)
+		return (NULL);
+	str = (char *)malloc((ft_numlen_base(n, base) + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	nbr = n;
+	if (n < 0)
+		nbr = -(long)n;
+	str = fill_rev_string(str, n, nbr, base);
 	return (ft_strrev(str));
 }
 
