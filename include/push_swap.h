@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/06 15:44:29 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/08 13:07:26 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
+
+int		validate_input(int ac, char **av);
+long	*read_into_array(char **av, int len);
+int		dupe_check(long *array, int len);
 
 #endif

@@ -9,7 +9,7 @@
    "-I",
    "include",
    "-I",
-   "libft//include",
+   "libft/include",
    "-c",
    "src/main.c",
    "-o",
@@ -784,5 +784,23 @@
    "obj/ft_toupper.o"
   ],
   "file": "src/ft_toupper.c"
+ },
+ {
+  "directory": "/Users/nschat/Projects/push_swap",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/include",
+   "-c",
+   "src/input.c",
+   "-o",
+   "obj/input.o"
+  ],
+  "file": "src/input.c"
  }
 ]
