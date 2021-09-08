@@ -6,11 +6,12 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/08 13:01:55 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/08 13:12:34 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/08 14:05:33 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 static int	str_isnumeric(const char *str)
 {
@@ -74,7 +75,7 @@ static int	check(long *array, int current, int len)
 	return (1);
 }
 
-int	dupe_check(long *array, int len)
+int	dupe_range_check(long *array, int len)
 {
 	int	i;
 
@@ -83,6 +84,8 @@ int	dupe_check(long *array, int len)
 	{
 		if (check(array, i, len) != 1)
 			return (0);
+		if (array[i] > INT_MAX || array[i] < INT_MIN)
+			return (-1);
 		i++;
 	}
 	return (1);

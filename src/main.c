@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/04 15:18:00 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/08 13:39:53 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/08 14:07:08 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static int	error(int errornum)
 		"not enough arguments",
 		"input is non-numeric",
 		"malloc failed",
-		"duplicate number found"
+		"duplicate number found",
+		"number is outside integer range",
 	};
 
 	ft_putendl_fd("Error", 2);
@@ -30,6 +31,7 @@ int	main(int ac, char **av)
 {
 	long	*stack_a;
 	int		len;
+	int		result;
 
 	len = ac - 1;
 	if (ac == 1)
@@ -39,8 +41,13 @@ int	main(int ac, char **av)
 	stack_a = read_into_array(av, len);
 	if (stack_a == NULL)
 		return (error(3));
-	if (dupe_check(stack_a, len) != 1)
-		return (error(4));
+	result = dupe_range_check(stack_a, len);
+	if (result != 1)
+	{
+		if (result == 0)
+			return (error(4));
+		return (error(5));
+	}
 	free(stack_a);
 	return (0);
 }
