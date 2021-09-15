@@ -1,23 +1,5 @@
 [
  {
-  "directory": "/Users/nschat/Projects/push_swap",
-  "arguments": [
-   "gcc",
-   "-Wall",
-   "-Wextra",
-   "-Werror",
-   "-I",
-   "include",
-   "-I",
-   "libft/include",
-   "-c",
-   "src/main.c",
-   "-o",
-   "obj/main.o"
-  ],
-  "file": "src/main.c"
- },
- {
   "directory": "/Users/nschat/Projects/push_swap/libft",
   "arguments": [
    "gcc",
@@ -797,10 +779,46 @@
    "-I",
    "libft/include",
    "-c",
-   "src/input.c",
+   "src/push_swap/main.c",
    "-o",
-   "obj/input.o"
+   "obj/push_swap/main.o"
   ],
-  "file": "src/input.c"
+  "file": "src/push_swap/main.c"
+ },
+ {
+  "directory": "/Users/nschat/Projects/push_swap",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/include",
+   "-c",
+   "src/push_swap/input.c",
+   "-o",
+   "obj/push_swap/input.o"
+  ],
+  "file": "src/push_swap/input.c"
+ },
+ {
+  "directory": "/Users/nschat/Projects/push_swap",
+  "arguments": [
+   "gcc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-I",
+   "include",
+   "-I",
+   "libft/include",
+   "-c",
+   "src/checker/main.c",
+   "-o",
+   "obj/checker/main.o"
+  ],
+  "file": "src/checker/main.c"
  }
 ]

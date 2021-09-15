@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/04 15:05:19 by nschat        #+#    #+#                  #
-#    Updated: 2021/09/15 13:39:05 by nschat        ########   odam.nl          #
+#    Updated: 2021/09/15 13:44:55 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,11 +72,11 @@ $(ODIR)/$(SRC_CHECKER_DIR):
 	mkdir -p $@
 
 clean:
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME_CHECKER)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(OBJ_CHECKER)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
