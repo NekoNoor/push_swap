@@ -1,6 +1,5 @@
+*.a
 /checker
 /checker_Mac
-/libft/libft.a
-/libft/obj
-/obj
 /push_swap
+obj

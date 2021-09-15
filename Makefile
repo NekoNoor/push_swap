@@ -6,19 +6,24 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/04 15:05:19 by nschat        #+#    #+#                  #
-#    Updated: 2021/09/15 15:09:24 by nschat        ########   odam.nl          #
+#    Updated: 2021/09/15 15:40:51 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC := gcc
 
-LIBFT_DIR := libft
+LIB_DIR := lib
+
+LIBFT_DIR := $(LIB_DIR)/libft
 LIBFT := $(LIBFT_DIR)/libft.a
+
+LIBGNL_DIR := $(LIB_DIR)/libgnl
+LIBGNL := $(LIBGNL_DIR)/libgnl.a
 
 IDIR := include
 
-LDFLAGS ?= -L libft -lft
-CFLAGS ?= -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT_DIR)/include
+LDFLAGS ?= -L $(LIBFT_DIR) -L $(LIBGNL_DIR) -lft -lgnl
+CFLAGS ?= -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT_DIR)/$(IDIR) -I $(LIBGNL_DIR)/$(IDIR)
 
 ifeq (1,${DEBUG})
 	CFLAGS := $(CFLAGS) -g
@@ -27,7 +32,8 @@ endif
 
 ODIR := obj
 
-SRC := input.c
+SRC := error.c \
+	   input.c
 OBJ := $(addprefix $(ODIR)/,$(SRC:.c=.o))
 
 SRC_PUSH_SWAP_DIR = push_swap
@@ -52,14 +58,17 @@ vpath %.h $(IDIR)
 
 all: $(NAME) $(NAME_CHECKER)
 
-$(NAME): $(LIBFT) | $(OBJ) $(OBJ_PUSH_SWAP)
+$(NAME): $(LIBFT) $(LIBGNL) | $(OBJ) $(OBJ_PUSH_SWAP)
 	$(CC) $(LDFLAGS) $| -o $@
 
-$(NAME_CHECKER): $(LIBFT) | $(OBJ) $(OBJ_CHECKER)
+$(NAME_CHECKER): $(LIBFT) $(LIBGNL) | $(OBJ) $(OBJ_CHECKER)
 	$(CC) $(LDFLAGS) $| -o $@
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
+
+$(LIBGNL):
+	$(MAKE) -C $(LIBGNL_DIR)
 
 $(ODIR)/%.o: $(ODIR) $(ODIR)/$(SRC_DIR) $(ODIR)/$(SRC_CHECKER_DIR) $(HEADERS) | %.c
 	$(CC) $(CFLAGS) -c $| -o $@
