@@ -6,7 +6,7 @@
 #    By: nschat <nschat@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/04 15:05:19 by nschat        #+#    #+#                  #
-#    Updated: 2021/09/15 13:44:55 by nschat        ########   odam.nl          #
+#    Updated: 2021/09/15 15:09:24 by nschat        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,13 @@ endif
 
 ODIR := obj
 
-SRC_DIR = push_swap
-SRC := main.c \
-	   input.c
-SRC := $(addprefix $(SRC_DIR)/,$(SRC))
+SRC := input.c
 OBJ := $(addprefix $(ODIR)/,$(SRC:.c=.o))
+
+SRC_PUSH_SWAP_DIR = push_swap
+SRC_PUSH_SWAP := main.c
+SRC_PUSH_SWAP := $(addprefix $(SRC_PUSH_SWAP_DIR)/,$(SRC_PUSH_SWAP))
+OBJ_PUSH_SWAP := $(addprefix $(ODIR)/,$(SRC_PUSH_SWAP:.c=.o))
 
 SRC_CHECKER_DIR = checker
 SRC_CHECKER := main.c
@@ -50,10 +52,10 @@ vpath %.h $(IDIR)
 
 all: $(NAME) $(NAME_CHECKER)
 
-$(NAME): $(LIBFT) | $(OBJ)
+$(NAME): $(LIBFT) | $(OBJ) $(OBJ_PUSH_SWAP)
 	$(CC) $(LDFLAGS) $| -o $@
 
-$(NAME_CHECKER): $(LIBFT) | $(OBJ_CHECKER)
+$(NAME_CHECKER): $(LIBFT) | $(OBJ) $(OBJ_CHECKER)
 	$(CC) $(LDFLAGS) $| -o $@
 
 $(LIBFT):
@@ -76,7 +78,7 @@ clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	$(RM) $(OBJ) $(OBJ_CHECKER)
+	$(RM) $(OBJ) $(OBJ_PUSH_SWAP) $(OBJ_CHECKER)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all

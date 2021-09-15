@@ -797,11 +797,11 @@
    "-I",
    "libft/include",
    "-c",
-   "src/push_swap/input.c",
+   "src/checker/main.c",
    "-o",
-   "obj/push_swap/input.o"
+   "obj/checker/main.o"
   ],
-  "file": "src/push_swap/input.c"
+  "file": "src/checker/main.c"
  },
  {
   "directory": "/Users/nschat/Projects/push_swap",
@@ -815,10 +815,10 @@
    "-I",
    "libft/include",
    "-c",
-   "src/checker/main.c",
+   "src/input.c",
    "-o",
-   "obj/checker/main.o"
+   "obj/input.o"
   ],
-  "file": "src/checker/main.c"
+  "file": "src/input.c"
  }
 ]
