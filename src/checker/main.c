@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 13:26:47 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/15 15:24:01 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/20 14:56:50 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ int	main(int ac, char **av)
 
 	len = ac - 1;
 	if (ac == 1)
-		return (error(NOT_ENOUGH_ARGS));
+		return (ret_error(NOT_ENOUGH_ARGS));
 	if (validate_input(ac, av) != 1)
-		return (error(NOT_NUMERIC));
+		return (ret_error(NOT_NUMERIC));
 	stack_a = read_into_array(av, len);
 	if (stack_a == NULL)
-		return (error(MALLOC_FAILED));
+		return (ret_error(MALLOC_FAILED));
 	result = dupe_range_check(stack_a, len);
 	if (result != 1)
 	{
 		if (result == 0)
-			return (error(DUPLICATE_NUM));
-		return (error(OUTSIDE_INT));
+			return (ret_error(DUPLICATE_NUM));
+		return (ret_error(OUTSIDE_INT));
 	}
 	free(stack_a);
 	return (SUCCESS);

@@ -6,13 +6,13 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/15 15:17:25 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/15 15:20:22 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/20 14:56:50 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error(int errornum)
+int	ret_error(int errornum)
 {
 	static char	*errors[] = {
 		"not enough arguments",

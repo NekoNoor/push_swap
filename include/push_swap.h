@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/15 15:19:55 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/20 14:56:50 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
+# include "get_next_line.h"
 
 enum e_errornums {
 	SUCCESS,
@@ -39,7 +40,7 @@ typedef struct s_stacks {
 	t_stack_list	*b_base;
 }		t_stacks;
 
-int		error(int errornum);
+int		ret_error(int errornum);
 int		validate_input(int ac, char **av);
 long	*read_into_array(char **av, int len);
 int		dupe_range_check(long *array, int len);
