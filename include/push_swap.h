@@ -6,7 +6,7 @@
 /*   By: nschat <nschat@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/04 15:18:26 by nschat        #+#    #+#                 */
-/*   Updated: 2021/09/20 14:56:50 by nschat        ########   odam.nl         */
+/*   Updated: 2021/09/30 11:16:32 by nschat        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ enum e_errornums {
 
 typedef struct s_stack_list {
 	int					value;
+	int					index;
 	struct s_stack_list	*prev;
 	struct s_stack_list	*next;
 }		t_stack_list;
@@ -38,6 +39,7 @@ typedef struct s_stacks {
 	t_stack_list	*a_base;
 	t_stack_list	*b_top;
 	t_stack_list	*b_base;
+	int				len;
 }		t_stacks;
 
 int		ret_error(int errornum);
